@@ -169,7 +169,9 @@ To deploy the application
 kubectl create deployment cat-app --image=tellmenop/cat-app-http:latest
 ```
 Expose the application with a service (ELB, NodePort)
+```shell
 kubectl create service nodeport cat-app-svc --tcp=31080:8080
+```
 
 ## License
 
