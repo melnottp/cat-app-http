@@ -10,9 +10,9 @@
 4. [Running docker Image](#running-docker-image-)
 5. [Testing (is it working)](#testing-is-it-working-)
 6. [STOPPING docker (running container)](#stopping-docker-docker-container-)
-7. [Push docker image to repo]
-8. [Deploy to Kubernetes]
-7. [MIT LICENSE 🛡️ ](#license-)
+7. [Push docker image to repository](#push-docker-image-to-repository)
+8. [Deploy to Kubernetes](#deploy-to-kubernetes)
+7. [MIT LICENSE](#license-)
 
 
 ## What is cat-app-http
@@ -54,13 +54,13 @@ Clone the repository on your machine
 cd cat-app-http
 ```
 
-💡 Prequisite / Assumption
+Prequisite / Assumption
 - You have`docker` installed and running on your machine.
 
 If not, its highly recomended to [Get docker](https://docs.docker.com/get-docker/)
 
 
-## Running docker 🐋
+## Running docker 
 
 ```
 docker build . -t cat-app-http
@@ -147,9 +147,33 @@ docker ps
 CONTAINER ID  IMAGE       COMMAND     CREATED     STATUS      PORTS       NAMES
 ```
 
+## Push docker image to repository
+Generic command to push image to docker repository 
+```shell
+docker tag local-image:tagname new-repo:tagname
+docker push new-repo:tagname
+```
+
+```shell
+sudo docker tag cat-app-http:latest tellmenop/cat-app-http:latest
+sudo docker push tellmenop/cat-app-http:latest
+```
+
+## Deploy to Kubernetes
+Prequisite / Assumption
+- You have`Kubernetes Cluster` installed and running.
+- Kubectl configured on your machine to access your Kubernetes Cluster
+
+To deploy the application
+```shell
+kubectl create deployment cat-app --image=tellmenop/cat-app-http:latest
+```
+Expose the application with a service (ELB, NodePort)
+kubectl create service nodeport cat-app-svc --tcp=31080:8080
 
 ## License
 
 **cat-app-http** was released under [MIT License](LICENSE)
+
 
 
