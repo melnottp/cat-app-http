@@ -1,0 +1,24 @@
+{
+  "name": "cat-app-http",
+  "version": "0.0.1",
+  "description": "Dev Docker instance / image running a NodeJS server.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "docker",
+    "nodejs",
+    "sample",
+    "example",
+    "server",
+    "js",
+    "javascript",
+    "local",
+    "localhost",
+    "8080"
+  ],
+  "author": "Pierre Melnotte (melnottp)",
+  "homepage":"https://github.com/melnottp/cat-app-http",
+  "license": "ISC"
+}
